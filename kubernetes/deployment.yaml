@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-resume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-resume
+  template:
+    metadata:
+      labels:
+        app: cloud-resume
+    spec:
+      containers:
+      - name: cloud-resume
+        image: cloud-resume:latest
+        ports:
+        - containerPort: 8080
