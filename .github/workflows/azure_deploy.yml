@@ -1,0 +1,33 @@
+name: Azure Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Test
+      run: |
+        # Run your unit tests here
+    
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+    
+    - name: Build and push Docker image to Docker Hub
+      run: |
+        docker build -t "${{ secrets.DOCKERHUB_USERNAME }}/cloud-resume:latest" .
+        docker push "${{ secrets.DOCKERHUB_USERNAME }}/cloud-resume:latest"
+    
+    - name: Deploy to Azure App Service
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: jhsd789bnsbnja127mj
+        images: "${{ secrets.DOCKERHUB_USERNAME }}/cloud-resume:latest"
+        #slot-name: <optional-slot-name>
