@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: python:3.10.13-slim
+    runs-on: ubuntu-latest
     
     steps:
     - name: Checkout code
