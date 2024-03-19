@@ -1,3 +1,7 @@
+# Demonstration Video Link
+Sorry for the length of the video! (The pipeline took a while to execute)
+https://www.youtube.com/watch?v=IZlEshk72bc&list=PLF055ivOg9onBZRUQTzqGdlo5u3B-Hfn0
+
 # What is cloud-resume?
 
 Cloud-resume is a very simple CV website written in Python using Flask framework that I have developed for the requirements of the "Devops Engineering: Software Development Practices and IT Operations" certification of the NKUA university.
